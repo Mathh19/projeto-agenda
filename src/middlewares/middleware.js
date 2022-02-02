@@ -2,7 +2,8 @@ const req = require("express/lib/request");
 
 // É importante sempre ter o next na requisição para que ela seja terminada, caso contrário vai ficar esperando uma resposta
 exports.middlewareGlobal = (req, res, next) => {
-    res.locals.umaVariavelLocal = 'Este é o valor da variável local.'
+    res.locals.errors = req.flash('errors');
+    res.locals.success = req.flash('success');
     next();
 };
 
